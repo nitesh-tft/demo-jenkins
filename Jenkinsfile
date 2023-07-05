@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     def downstreamJobFullName = "demo-pipe"
-                    build job: downstreamJobFullName, parameters: [string(name: 'BRANCH_NAME', value: "${env.GIT_BRANCH")]
+                    build job: downstreamJobFullName, parameters: [string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME")]
                 }
             }
         }
