@@ -13,15 +13,10 @@ pipeline {
             }
         }
         stage('Trigger Downstream Pipeline') {
-            steps {
-                script {
-                    def downstreamParams = [
-                        string(name: 'BRANCH_NAME', value: env.BRANCH_NAME)
-                    ]
-                    def downstreamJobFullName = "downstream-pipeline/${branchName}"
-                    build job: downstreamJobFullName, parameters: downstreamParams
-                }
-            }
-        }
+    steps {
+        build job: 'downstream-pipeline/main', wait: true
+    }
+}
+
     }
 }
