@@ -18,7 +18,7 @@ pipeline {
                     def downstreamParams = [
                         string(name: 'BRANCH_NAME', value: env.BRANCH_NAME)
                     ]
-                    def downstreamJobFullName = 'FolderName/downstream'
+                    def downstreamJobFullName = 'downstream/downstream-pipeline'
                     build job: downstreamJobFullName, parameters: downstreamParams
                 }
             }
