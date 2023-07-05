@@ -12,11 +12,19 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('Trigger Downstream Pipeline') {
+   stage('Trigger Downstream Pipeline') {
     steps {
-        build job: 'demo-pipe', wait: true
+        script {
+            def branchName = env.BRANCH_NAME
+            def downstreamJobFullName = 'demo-pipe'
+            def downstreamParams = [
+                string(name: 'BRANCH_NAME', value: branchName)
+            ]
+            build job: downstreamJobFullName, parameters: downstreamParams
+        }
     }
 }
+
 
     }
 }
