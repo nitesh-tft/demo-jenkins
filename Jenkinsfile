@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Trigger Downstream Pipeline') {
             steps {
-            build job: 'downstream', parameters: [
+            build job: 'downstream-pipeline', parameters: [
             string(name: 'BRANCH_NAME', value: env.BRANCH_NAME)
             ], wait: true
         }
