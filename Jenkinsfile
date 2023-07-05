@@ -1,4 +1,4 @@
-def branchName = 'master' // Default branch name if not provided
+def branchName = 'main' // Default branch name if not provided
 
 parameters {
     string(name: 'BRANCH_NAME', defaultValue: branchName, description: 'Branch name for downstream pipeline')
