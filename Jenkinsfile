@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Trigger Downstream Pipeline') {
     steps {
-        build job: 'downstream-pipeline/main', wait: true
+        build job: 'demo-pipe', wait: true
     }
 }
 
