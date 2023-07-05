@@ -15,13 +15,16 @@ pipeline {
         stage('Trigger Downstream Pipeline') {
     steps {
         script {
-            def downstreamJobName = 'downstream-pipeline'
-            def downstreamBranchName = env.BRANCH_NAME
-            // Trigger downstream pipeline with branch name using REST API
-            sh "curl -X POST 'http://localhost:8080/job/${downstreamJobName}/job/${downstreamBranchName}/build'"
+            def downstreamParams = [
+                string(name: 'BRANCH_NAME', value: env.BRANCH_NAME)
+            ]
+            def downstreamJobFullName = 'FolderName/downstream-pipeline'
+            def trigger = downstreamJobFullName + '/job/' + downstreamParams.BRANCH_NAME
+            build job: trigger, parameters: downstreamParams
         }
     }
 }
+
 
 }
 }
