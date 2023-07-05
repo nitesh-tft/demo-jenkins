@@ -4,6 +4,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
+                echo 'Main Branch'
             }
         }
         stage('Trigger Downstream Pipeline') {
